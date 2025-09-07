@@ -334,3 +334,6 @@ button[type="submit"] {
 button[type="submit"]:hover {
 transform: translateY(-2px);
 }
+#contact form {
+    color: blue;
+}
