@@ -34,4 +34,27 @@ function type() {
         r.classList.add('active');
         }
 }
+// Contact Form Submission
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // prevent default submission
+
+    const formData = new FormData(form);
+
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+        status.textContent = "Thanks! Your message has been sent.";
+        status.classList.add("text-green-600");
+        form.reset();
+    })
+    .catch(() => {
+        status.textContent = "Oops! Something went wrong. Try again.";
+        status.classList.add("text-red-600");
+    });
 });
