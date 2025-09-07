@@ -1,48 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="Master.css">
-</head>
-<body>
-    <header>
-        <a href="#" class="logo">Victoria</a>           
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Victoria Lamy – Portfolio</title>
+        <meta name="description" content="Portfolio, skills, projects, and contact for Victoria Lamy – Software Engineering student at Western Governors University." />
+        <meta property="og:title" content="Victoria Lamy – Portfolio" />
+        <meta property="og:description" content="Software Engineering student | Web developer | Problem solver" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/og-image.png" />
+        <link rel="icon" href="/favicon.ico" />
 
-        <nav>
-            <a href="#" class="active">Home</a>
-            <a href="./services.html">Services</a>
-            <a href="./skills.html">Skills</a>
-            <a href="./education.html">Educations</a>
-            <a href="./Experience.html">Experience</a>
-            <a href="./Contact.html">Contact</a>
-        </nav>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+            theme: {
+                extend: {
+                colors: {
+                    brand: {
+                    50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6',
+                    600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a'
+                    }
+                },
+                fontFamily: {
+                    display: ['Inter', 'system-ui', 'Avenir', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif']
+                },
+                boxShadow: {
+                    glow: '0 0 0 0.25rem rgba(59,130,246,0.15)'
+                }
+                }
+            }
+        </script>
+        <!-- Inter font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- External stylesheet -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="bg-slate-950 text-slate-100 font-display">
+    <!-- Sticky Nav -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+        <div class="h-16 flex items-center justify-between gap-4">
+            <a href="#home" class="text-lg font-extrabold tracking-tight">Victoria<span class="text-brand-400">.</span></a>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+            <a class="hover:text-brand-300" href="#services">Services</a>
+            <a class="hover:text-brand-300" href="#skills">Skills</a>
+            <a class="hover:text-brand-300" href="#education">Education</a>
+            <a class="hover:text-brand-300" href="#experience">Experience</a>
+            <a class="hover:text-brand-300" href="#projects">Projects</a>
+            <a class="hover:text-brand-300" href="#contact">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-flex items-center gap-2 rounded-2xl bg-brand-600 hover:bg-brand-500 px-4 py-2 text-sm font-semibold shadow-glow focus:outline-none focus:ring-2 focus:ring-brand-400">Hire me</a>
+            <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 ring-1 ring-white/10">☰</button>
+        </div>
+        </div>
     </header>
-    <section class="home">
-        <div class="home-img">
-            <img src="newmain.webp" alt=""> 
-        
-        </div>
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="md:hidden hidden border-b border-white/10 bg-slate-950/95 backdrop-blur">
+        <nav class="max-w-6xl mx-auto px-4 py-4 grid gap-3 text-sm">
+        <a class="hover:text-brand-300" href="#services">Services</a>
+        <a class="hover:text-brand-300" href="#skills">Skills</a>
+        <a class="hover:text-brand-300" href="#education">Education</a>
+        <a class="hover:text-brand-300" href="#experience">Experience</a>
+        <a class="hover:text-brand-300" href="#projects">Projects</a>
+        <a class="hover:text-brand-300" href="#contact">Contact</a>
+        </nav>
+    </div>
 
-        <div class="home-content">
-            <h1>
-                Hi, It's <span>Victoria</span>
+    <!-- Hero -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/20 via-slate-900 to-slate-950"></div>
+        <div class="relative max-w-6xl mx-auto px-4 py-24 md:py-32 grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+            <p class="text-brand-300 font-semibold mb-3">Hi, it's</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Victoria Lamy
             </h1>
-            <h3 class="typing-text"> I'm a <span></span></h3>
-             <p>
-               I'm a student at Western Governors University. I'm currently studying for my Bachelor's in Software Development. I'm always looking for new projects to work on.
-             </p>
+            <p class="mt-4 text-xl text-slate-300">I'm a <span id="typeTarget" class="font-semibold"></span><span class="type-cursor">|</span></p>
+            <p class="mt-4 text-slate-300">I'm a student at Western Governors University pursuing a B.S. in Software Engineering. I love building clean, accessible web apps and learning by shipping.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" class="rounded-2xl bg-white text-slate-900 px-5 py-3 font-semibold ring-1 ring-white/20">See projects</a>
+            <a href="#contact" class="rounded-2xl bg-brand-600 hover:bg-brand-500 px-5 py-3 font-semibold shadow-glow">Hire me</a>
+            <a href="/Victoria-Lamy-Resume.pdf" class="rounded-2xl px-5 py-3 font-semibold ring-1 ring-white/20 hover:ring-brand-400">Download Résumé</a>
+            </div>
         </div>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/victoria-lamy-8661b2325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i target="_blank" class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/vlamy3" ><i target="_blank" class="fa-brands fa-github"></i></a>
-            <a href="https://x.com/Victoria1442090" ><i target="_blank" class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/victoria_webdesignse/profilecard/?igsh=MWM0OTBybGkzbWZvbw==" ><i target="_blank" class="fa-brands fa-instagram"></i></a>
+        <div class="reveal md:justify-self-end">
+            <div class="relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-brand-400 rounded-full blur opacity-30"></div>
+            <img alt="Portrait of Victoria Lamy" src="https://resume1013.netlify.app/newmain.webp" class="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full ring-2 ring-white/10"/>
+            </div>
         </div>
-        <a href="#" class="btn">Hire me</a>
-
+        </div>
     </section>
-</body>
-</html>
+
+    <!-- Services -->
+    <section id="services" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Services</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <article class="reveal rounded-2xl p-6 ring-1 ring-white/10 bg-white/5">
+            <h3 class="font-semibold text-lg mb-2">Frontend Development</h3>
+            <p class="text-slate-300">Responsive, accessible UI with React, Tailwind, and modern JS best practices.</p>
+            </article>
+            <article class="reveal rounded-2xl p-6 ring-1 ring-white/10 bg-white/5">
+            <h3 class="font-semibold text-lg mb-2">Backend & APIs</h3>
+            <p class="text-slate-300">Node/Express and Python/Flask APIs, RESTful design, and simple data models.</p>
+            </article>
+            <article class="reveal rounded-2xl p-6 ring-1 ring-white/10 bg-white/5">
+            <h3 class="font-semibold text-lg mb-2">Automation & Scripting</h3>
+            <p class="text-slate-300">Small tools to automate workflows, scraping, and data cleaning.</p>
+            </article>
+        </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Skills</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="reveal rounded-xl p-4 bg-white/5 ring-1 ring-white/10">
+            <h3 class="font-semibold">Languages</h3>
+            <p class="text-slate-300">Python, JavaScript, TypeScript, SQL</p>
+            </div>
+            <div class="reveal rounded-xl p-4 bg-white/5 ring-1 ring-white/10">
+            <h3 class="font-semibold">Frontend</h3>
+            <p class="text-slate-300">HTML, CSS, React, Tailwind</p>
+            </div>
+            <div class="reveal rounded-xl p-4 bg-white/5 ring-1 ring-white/10">
+            <h3 class="font-semibold">Backend</h3>
+            <p class="text-slate-300">Node/Express, Flask</p>
+            </div>
+            <div class="reveal rounded-xl p-4 bg-white/5 ring-1 ring-white/10">
+            <h3 class="font-semibold">Databases</h3>
+            <p class="text-slate-300">SQLite, PostgreSQL basics</p>
+            </div>
+            <div class="reveal rounded-xl p-4 bg-white/5 ring-1 ring-white/10">
+            <h3 class="font-semibold">Tools</h3>
+            <p class="text-slate-300">Git/GitHub, Netlify, Vercel</p>
+            </div>
+            <div class="reveal rounded-xl p-4 bg-white/5 ring-1 ring-white/10">
+            <h3 class="font-semibold">Interests</h3>
+            <p class="text-slate-300">Data management (WGU D426), UI polish</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Education</h2>
+        <ol class="relative border-s-2 border-white/10 ms-3">
+            <li class="reveal mb-10 ms-6">
+            <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 ring-2 ring-white/10"></span>
+            <h3 class="font-semibold">B.S. Software Engineering – Western Governors University</h3>
+                <p class="text-slate-300">Expected graduation: <span class="font-medium">TBD</span></p>
+                <p class="text-slate-400 text-sm">Coursework: Data Management (D426), Algorithms, Web Development</p>
+                </li>
+            <li class="reveal ms-6">
+            <span class="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-brand-600 ring-2 ring-white/10"></span>
+            <h3 class="font-semibold">Florida SouthWestern Collegiate High School</h3>
+            <p class="text-slate-300">Graduated: 2024</p>
+            </li>
+        </ol>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Experience</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <article class="reveal rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+            <header class="flex items-center justify-between gap-3">
+                <h3 class="font-semibold">Freelance Web Projects</h3>
+                <span class="text-xs text-slate-400">2024–Present</span>
+            </header>
+            <ul class="mt-3 list-disc ps-5 text-slate-300">
+                <li>Built responsive landing pages with semantic HTML and accessibility in mind.</li>
+                <li>Integrated Netlify Forms and simple serverless functions.</li>
+                <li>Collaborated with peers on GitHub; wrote clear READMEs.</li>
+            </ul>
+            </article>
+            <article class="reveal rounded-2xl p-6 bg-white/5 ring-1 ring-white/10">
+            <header class="flex items-center justify-between gap-3">
+                <h3 class="font-semibold">Teaching & Tutoring</h3>
+                    <span class="text-xs text-slate-400">2023–2024</span>
+            </header>
+            <ul class="mt-3 list-disc ps-5 text-slate-300">
+                <li>Helped classmates learn data structures and SQL basics.</li>
+                <li>Created ADHD‑friendly study planners and flashcards.</li>
+            </ul>
+            </article>
+        </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Projects</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="#" class="reveal group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+            <img alt="Project screenshot" class="aspect-video object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="p-4">
+                <h3 class="font-semibold">LCSMatrix (Python)</h3>
+                <p class="text-slate-300 text-sm">Computes all longest‑common‑subsequences; clean API and tests.</p>
+            </div>
+            </a>
+            <a href="#" class="reveal group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+            <img alt="Project screenshot" class="aspect-video object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="p-4">
+                <h3 class="font-semibold">Bunny Burrow (Minecraft)</h3>
+                <p class="text-slate-300 text-sm">Cute cave home with diagrams and downloadable schematic.</p>
+            </div>
+            </a>
+            <a href="#" class="reveal group rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+            <img alt="Project screenshot" class="aspect-video object-cover group-hover:scale-105 transition" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop"/>
+            <div class="p-4">
+                <h3 class="font-semibold">Study Planner (.ics)</h3>
+                <p class="text-slate-300 text-sm">Calendar generator for workouts, walks, and reminders.</p>
+            </div>
+            </a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 border-t border-white/10">
+        <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Contact</h2>
+        <form name="contact" method="POST" data-netlify="true" class="reveal grid gap-4 bg-white/5 p-6 rounded-2xl ring-1 ring-white/10">
+            <input type="hidden" name="form-name" value="contact">
+            <div class="grid md:grid-cols-2 gap-4">

@@ -267,3 +267,70 @@ span{
         margin-top: 4rem;
     }
 }
+
+/* style.css - Custom styles for Victoria Lamy Portfolio */
+
+/* Reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typewriter effect */
+.type-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    width: 1px;
+    background-color: currentColor;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+    opacity: 0;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Utility tweaks */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Form styling (extra polish) */
+input, textarea {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    width: 100%;
+    color: #fff;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+    }
+
+button[type="submit"] {
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+transform: translateY(-2px);
+}
