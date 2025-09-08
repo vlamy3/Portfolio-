@@ -63,3 +63,17 @@ form.addEventListener("submit", function(event) {
         status.classList.add("text-red-600");
     });
 });
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_4tvvhsg", "template_i836sej", "#contact-form", "dEPIpFdxmlH7HJGJd")
+        .then(() => {
+            status.textContent = "Thanks! Your message has been sent.";
+            status.classList.add("text-green-600");
+            form.reset();
+        })
+        .catch(() => {
+            status.textContent = "Oops! Something went wrong. Try again.";
+            status.classList.add("text-red-600");
+        });
+});
