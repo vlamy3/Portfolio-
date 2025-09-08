@@ -18,11 +18,13 @@ function type() {
         isDeleting = true;
         setTimeout(type, pause);
         return;
+                }
         }
     }
     setTimeout(type, isDeleting ? speed / 2 : speed);
-    }
-    type();
+}
+
+type();
 
     // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
