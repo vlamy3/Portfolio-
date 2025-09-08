@@ -1,5 +1,5 @@
 // Typewriter Effect
-const typewriterText = ["Software Engineering Student", "Web Developer", "Problem Solver"];
+const typewriterText = ["Software Engineering Student", "Web Developer", "Problem Solver", "Lifelong Learner"];
 let i = 0, j = 0, current = "", isDeleting = false;
 const speed = 100, pause = 1500;
 const element = document.getElementById("typewriter");
@@ -18,11 +18,12 @@ function type() {
         isDeleting = true;
         setTimeout(type, pause);
         return;
-                }
-        }
-    }
-    setTimeout(type, isDeleting ? speed / 2 : speed);
+                    }
+                } 
+        setTimeout(type, isDeleting ? speed / 2 : speed);
 }
+    
+
 
 type();
 
@@ -33,9 +34,11 @@ type();
         const windowHeight = window.innerHeight;
         const elementTop = r.getBoundingClientRect().top;
         if (elementTop < windowHeight - 50) {
-        r.classList.add('active');
+            r.classList.add('active');
         }
-}
+    }
+});
+
 // Contact Form Submission
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");

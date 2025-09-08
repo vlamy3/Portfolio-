@@ -334,6 +334,18 @@ button[type="submit"] {
 button[type="submit"]:hover {
 transform: translateY(-2px);
 }
-#contact form {
-    color: blue;
+/* Typewriter Cursor */
+
+.type-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 0.8s steps(2, start) infinite;
+    color: #3b82f6; /* brand blue — you can switch to black if you prefer */
+    font-weight: bold;
+    }
+
+    @keyframes blink {
+    to {
+        visibility: hidden;
+    }
 }
